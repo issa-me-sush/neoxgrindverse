@@ -42,7 +42,7 @@ const formatTimeRemaining = (nextClaimTime) => {
 
 // Add network configuration at the top
 const NEOX_NETWORK = {
-  chainId: '12227332', 
+  chainId: '0xBA9304', 
   chainName: 'Neox testnet',
   nativeCurrency: {
     name: 'GAS',
