@@ -1,0 +1,47 @@
+{
+  "name": "neoxgrind-hack",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@account-kit/core": "^4.0.0",
+    "@account-kit/infra": "^4.0.0",
+    "@account-kit/react": "^4.0.0",
+    "@googlemaps/js-api-loader": "^1.16.8",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.1.5",
+    "@react-spring/web": "^9.7.5",
+    "@react-three/drei": "^9.120.4",
+    "@react-three/fiber": "^8.17.10",
+    "@tanstack/react-query": "^5.50.1",
+    "@web3-storage/w3up-client": "^16.4.1",
+    "clsx": "^2.1.1",
+    "ethers": "^5.7.2",
+    "formidable": "^3.5.2",
+    "framer-motion": "^11.15.0",
+    "lodash": "^4.17.21",
+    "mapbox-gl": "^2.15.0",
+    "mongoose": "^8.9.1",
+    "next": "^14.2.4",
+    "pinata": "^1.10.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwind-merge": "^2.5.5",
+    "three": "^0.171.0",
+    "three-globe": "^2.37.2",
+    "threebox-plugin": "^2.2.7",
+    "viem": "^2.21.55"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.7.2"
+  }
+}

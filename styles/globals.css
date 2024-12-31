@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mapboxgl-ctrl-top-right {
+  margin-top: 4rem;
+}
+
+.mapboxgl-ctrl-group {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.mapboxgl-ctrl-group button {
+  color: white !important;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mapboxgl-user-location-dot {
+  background-color: #3B82F6 !important;
+}
+
+.mapboxgl-user-location-dot::before {
+  background-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.memory-spot {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.memory-spot:hover {
+  transform: scale(1.2);
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.mapboxgl-canvas {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+.mapboxgl-map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+  transition: all 0.3s ease-out;
+}
+
+@keyframes gradient-xy {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-xy {
+  background: linear-gradient(
+    45deg,
+    rgba(168, 85, 247, 0.1),
+    rgba(59, 130, 246, 0.1),
+    rgba(168, 85, 247, 0.1)
+  );
+  background-size: 200% 200%;
+  animation: gradient-xy 15s ease infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+.mapboxgl-map .mapboxgl-canvas-container:hover {
+  cursor: grab;
+}
+
+.mapboxgl-map .mapboxgl-canvas-container:active {
+  cursor: grabbing;
+}
+
+.animated-marker {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.marker-tag {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.animated-marker:hover .marker-tag {
+  opacity: 1;
+}
+
+.event-marker {
+  width: 40px;
+  height: 40px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.place-marker {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-origin: bottom center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.icon-container {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-3d {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.place-marker:hover .icon-container {
+  transform: scale(1.2) translateY(-5px);
+}
+
+.event-marker-container {
+  position: relative;
+}
+
+.event-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.event-marker-container:hover .event-tooltip {
+  opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkles::before,
+.sparkles::after {
+  content: "✨";
+  position: absolute;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkles::before {
+  left: -10px;
+  top: -10px;
+  animation-delay: 0s;
+}
+
+.sparkles::after {
+  right: -10px;
+  bottom: -10px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
