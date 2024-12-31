@@ -9,7 +9,8 @@ neoxverse is a Web3-powered geospatial metaverse that transforms real-world loca
 
 ### Video Demo
 🎮 [Watch neoxverse Demo](https://drive.google.com/drive/folders/13l7gBV_sODtQG24xHBYu17VLqMNe7Emv?usp=sharing)
-[live link](neoxverse.vercel.app)
+
+- [live link](https://neoxverse.vercel.app)
 
 ## 🌟 Core Concept
 
