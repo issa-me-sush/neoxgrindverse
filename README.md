@@ -5,6 +5,7 @@ neoxverse is a Web3-powered geospatial metaverse that transforms real-world loca
 ## 🌟 Demo & Architecture
 
 ### System Architecture
+<img width="918" alt="image" src="https://github.com/user-attachments/assets/1fb62a40-ba27-48be-9b8c-0e465712876d" />
 
 
 ### Video Demo
