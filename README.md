@@ -100,7 +100,7 @@ npm run dev
 ## 🔗 Smart Contract Deployment
 
 - **Network**: NEOX Testnet T4
-- **Contract Address**: `0xBc2e25EE5380242A9af2a31b64a08ad2bcB300aC`
+- **Contract Address**: `0xD6302d3bDDb59Da0217B4A04778d3642A379dA0E`
 
 ## 🎮 User Features
 
