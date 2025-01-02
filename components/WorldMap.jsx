@@ -15,6 +15,7 @@ import { Canvas, coordsToVector3 } from "react-three-map";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { OrbitControls } from '@react-three/drei';
+import { Layer, Source } from 'react-map-gl';
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 // Preload the model
@@ -240,6 +241,52 @@ export default function WorldMap() {
         interactiveLayerIds={['poi-label', 'place-label']}
         cursor="pointer"
       >
+        <Layer
+          id="add-3d-buildings"
+          type="fill-extrusion"
+          source="composite"
+          source-layer="building"
+          filter={['==', 'extrude', 'true']}
+          minzoom={15}
+          paint={{
+            'fill-extrusion-color': [
+              'interpolate',
+              ['linear'],
+              ['get', 'height'],
+              0, 'rgba(30, 30, 35, 0.5)',
+              50, 'rgba(40, 40, 45, 0.6)',
+              100, 'rgba(50, 50, 55, 0.7)',
+              200, 'rgba(60, 60, 65, 0.8)'
+            ],
+            'fill-extrusion-height': [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              15, 0,
+              15.05, ['get', 'height']
+            ],
+            'fill-extrusion-base': [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              15, 0,
+              15.05, ['get', 'min_height']
+            ],
+            'fill-extrusion-opacity': 0.7,
+            'fill-extrusion-vertical-gradient': true
+          }}
+        />
+
+        <Layer
+          id="sky"
+          type="sky"
+          paint={{
+            'sky-type': 'atmosphere',
+            'sky-atmosphere-sun': [0.0, 90.0],
+            'sky-atmosphere-sun-intensity': 15
+          }}
+        />
+
         <Canvas latitude={40.7829} longitude={-73.9654}>
           <hemisphereLight
             args={["#ffffff", "#60666C"]}
@@ -271,11 +318,11 @@ export default function WorldMap() {
                 <object3D key={location.placeId || index} position={position} scale={5}>
                   <Model 
                     modelPath="/butterlight.glb"
-                    scale={2} 
+                    scale={6} 
                   />
                    <Model 
                     modelPath="/camp.glb"
-                    scale={0.2} 
+                    scale={1} 
                   />
                 </object3D>
               );
