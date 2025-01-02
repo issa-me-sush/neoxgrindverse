@@ -25,6 +25,6 @@
     "pages/_app.tsx",
     "components/auth/Login.jsx",
     "components/globe.jsx"
-  ],
+, "pages/map-test.jsx"  ],
   "exclude": ["node_modules"]
 }

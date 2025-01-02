@@ -2,7 +2,7 @@ import { useUser, useAuthModal } from "@account-kit/react";
 import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-const WorldMap = dynamic(() => import('../components/WorldMap'), { 
+const WorldMap = dynamic(() => import('../components/WorldMap.jsx'), { 
   ssr: false,
   loading: () => (
     <div className="w-full h-screen flex items-center justify-center bg-black">

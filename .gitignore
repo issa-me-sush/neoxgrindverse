@@ -9,7 +9,9 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
+pages/test.jsx
+pages/map-test.jsx
+pages/stable-map.jsx
 # testing
 /coverage
 
